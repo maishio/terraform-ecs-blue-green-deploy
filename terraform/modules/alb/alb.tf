@@ -29,23 +29,6 @@ module "blue_target_group" {
   vpc_id                = var.vpc_id
 }
 
-module "blue_listener" {
-  source          = "../../resources/elb/listener"
-  certificate_arn = module.acm.acm_certificate.arn
-  default_action = [
-    {
-      target_group_arn = module.blue_target_group.elb_target_group.arn
-      type             = "forward"
-    }
-  ]
-  load_balancer_arn = module.alb.elb.arn
-  name              = "${var.tags.service}-${var.tags.env}-blue-listener"
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-FS-1-2-Res-2020-10"
-  tags              = var.tags
-}
-
 module "green_target_group" {
   source                = "../../resources/elb/target_group"
   health_check_interval = 60
@@ -61,7 +44,24 @@ module "green_target_group" {
   vpc_id                = var.vpc_id
 }
 
-module "green_listener" {
+module "production_listener" {
+  source          = "../../resources/elb/listener"
+  certificate_arn = module.acm.acm_certificate.arn
+  default_action = [
+    {
+      target_group_arn = module.blue_target_group.elb_target_group.arn
+      type             = "forward"
+    }
+  ]
+  load_balancer_arn = module.alb.elb.arn
+  name              = "${var.tags.service}-${var.tags.env}-production-listener"
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-FS-1-2-Res-2020-10"
+  tags              = var.tags
+}
+
+module "test_listener" {
   source          = "../../resources/elb/listener"
   certificate_arn = module.acm.acm_certificate.arn
   default_action = [
@@ -71,7 +71,7 @@ module "green_listener" {
     }
   ]
   load_balancer_arn = module.alb.elb.arn
-  name              = "${var.tags.service}-${var.tags.env}-blue-listener"
+  name              = "${var.tags.service}-${var.tags.env}-test-listener"
   port              = "8080"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-FS-1-2-Res-2020-10"

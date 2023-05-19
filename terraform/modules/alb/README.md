@@ -15,12 +15,16 @@
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_acm"></a> [acm](#module\_acm) | ../../resources/acm | n/a |
 | <a name="module_alb"></a> [alb](#module\_alb) | ../../resources/elb/elb | n/a |
 | <a name="module_alb_logs"></a> [alb\_logs](#module\_alb\_logs) | ../../resources/s3/bucket | n/a |
 | <a name="module_alb_logs_lifecycle"></a> [alb\_logs\_lifecycle](#module\_alb\_logs\_lifecycle) | ../../resources/s3/bucket_lifecycle_configuration | n/a |
 | <a name="module_alb_logs_policy"></a> [alb\_logs\_policy](#module\_alb\_logs\_policy) | ../../resources/s3/bucket_policy | n/a |
-| <a name="module_listener"></a> [listener](#module\_listener) | ../../resources/elb/listener | n/a |
-| <a name="module_target_group"></a> [target\_group](#module\_target\_group) | ../../resources/elb/target_group | n/a |
+| <a name="module_blue_target_group"></a> [blue\_target\_group](#module\_blue\_target\_group) | ../../resources/elb/target_group | n/a |
+| <a name="module_green_target_group"></a> [green\_target\_group](#module\_green\_target\_group) | ../../resources/elb/target_group | n/a |
+| <a name="module_production_listener"></a> [production\_listener](#module\_production\_listener) | ../../resources/elb/listener | n/a |
+| <a name="module_route53"></a> [route53](#module\_route53) | ../../resources/route53/record | n/a |
+| <a name="module_test_listener"></a> [test\_listener](#module\_test\_listener) | ../../resources/elb/listener | n/a |
 
 ## Resources
 
@@ -44,6 +48,11 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_alb_dns_name"></a> [alb\_dns\_name](#output\_alb\_dns\_name) | DNS name of the ALB. |
-| <a name="output_alb_id"></a> [alb\_id](#output\_alb\_id) | ID of the ALB. |
-| <a name="output_alb_target_group_arn"></a> [alb\_target\_group\_arn](#output\_alb\_target\_group\_arn) | ARN of the ALB target group. |
+| <a name="output_alb_arn_suffix"></a> [alb\_arn\_suffix](#output\_alb\_arn\_suffix) | ARN suffix of the ALB |
+| <a name="output_blue_target_group_arn"></a> [blue\_target\_group\_arn](#output\_blue\_target\_group\_arn) | ARN of the blue target group |
+| <a name="output_blue_target_group_arn_suffix"></a> [blue\_target\_group\_arn\_suffix](#output\_blue\_target\_group\_arn\_suffix) | ARN suffix of the blue target group |
+| <a name="output_blue_target_group_name"></a> [blue\_target\_group\_name](#output\_blue\_target\_group\_name) | Name of the blue target group |
+| <a name="output_green_target_group_arn"></a> [green\_target\_group\_arn](#output\_green\_target\_group\_arn) | ARN of the green target group |
+| <a name="output_green_target_group_name"></a> [green\_target\_group\_name](#output\_green\_target\_group\_name) | Name of the green target group |
+| <a name="output_production_listener_arn"></a> [production\_listener\_arn](#output\_production\_listener\_arn) | ARN of the production listener |
+| <a name="output_test_listener_arn"></a> [test\_listener\_arn](#output\_test\_listener\_arn) | ARN of the test listener |

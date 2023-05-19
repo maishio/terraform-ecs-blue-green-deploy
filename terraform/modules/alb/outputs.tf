@@ -28,12 +28,12 @@ output "green_target_group_name" {
   value       = module.green_target_group.elb_target_group.name
 }
 
-output "blue_listener_arn" {
-  description = "ARN of the blue listener"
-  value       = module.blue_listener.elb_listener.arn
+output "production_listener_arn" {
+  description = "ARN of the production listener"
+  value       = module.production_listener.elb_listener.arn
 }
 
-output "green_listener_arn" {
-  description = "ARN of the green listener"
-  value       = module.green_listener.elb_listener.arn
+output "test_listener_arn" {
+  description = "ARN of the test listener"
+  value       = module.test_listener.elb_listener.arn
 }
