@@ -23,10 +23,10 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to the resource. | `map(string)` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_repository_name"></a> [repository\_name](#output\_repository\_name) | n/a |
+| <a name="output_repository_name"></a> [repository\_name](#output\_repository\_name) | Name of the repository. |
