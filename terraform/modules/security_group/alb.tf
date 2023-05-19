@@ -1,5 +1,5 @@
 module "alb_sg" {
-  source              = "../../resources/security_group"
+  source              = "../../resources/vpc/security_group"
   security_group_name = "${var.tags.service}-${var.tags.env}-alb-sg"
   tags                = var.tags
   vpc_id              = var.vpc_id
