@@ -1,7 +1,7 @@
 module "wafv2" {
   source      = "../../resources/wafv2/web_acl"
   description = "Web ACL for ALB"
-  name        = "${var.tags.alias}-${var.tags.env}-alb-waf"
+  name        = "${var.tags.service}-${var.tags.env}-alb-waf"
   scope       = "REGIONAL"
   tags        = var.tags
 
@@ -204,7 +204,7 @@ module "wafv2" {
   ]
 
   cloudwatch_metrics_enabled = true
-  metric_name                = "${var.tags.alias}-${var.tags.env}-alb-waf"
+  metric_name                = "${var.tags.service}-${var.tags.env}-alb-waf"
   sampled_requests_enabled   = false
 }
 
